@@ -1,0 +1,14 @@
+/* ── MOBILE (≤768px) ── */
+@media (max-width: 768px) {
+  nav { padding: 8px 8px 8px 16px; }
+  .nav-links { display: none; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.featured { grid-column: span 1; }
+
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}
