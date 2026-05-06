@@ -18,6 +18,16 @@
   /* Hero Section */
   .hero {
     padding: 100px 16px 60px;
+    min-height: 100svh;
+    isolation: auto;
+  }
+
+  .hero .section-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
   }
 
   .hero-badge {
@@ -204,4 +214,6 @@
   .footer-copy {
     font-size: 11px;
   }
+
+
 }
