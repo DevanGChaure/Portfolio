@@ -1,0 +1,33 @@
+/* ── FIXED BACKGROUND CANVAS ── */
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── SECTION BLEND CANVAS ── */
+/* Sits absolute inside .hero and .contact, copied from bg-canvas each frame
+   so that mix-blend-mode: overlay on text has a real surface to blend against */
+.section-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* All direct children of sections using .section-bg float above it */
+.hero > *:not(.section-bg),
+.contact > *:not(.section-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+/* All sections sit above the fixed bg-canvas */
+section {
+  position: relative;
+  z-index: 1;
+}

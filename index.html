@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devang Chaure — UI/UX Designer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles — order matters: variables first, then components, then overrides -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/canvas.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ANIMATED BACKGROUND CANVAS -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">DC</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:devangchaure@gmail.com" class="nav-cta">Get in touch →</a>
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" aria-label="Toggle mobile menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul class="mobile-nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="mailto:devangchaure@gmail.com" class="nav-cta">Get in touch →</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- section-bg is copied from bg-canvas each frame so mix-blend-mode works -->
+    <canvas class="section-bg"></canvas>
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Available for work
+    </div>
+    <h1 class="hero-title">Devang<br>Chaure.</h1>
+    <p class="hero-title-sub">UI/UX Designer</p>
+    <p class="hero-desc">Adding finesse to your digital presence — crafting interfaces that feel inevitable, not engineered.</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary">View Work <span class="btn-arrow">→</span></a>
+      <a href="https://github.com/DevanGChaure" target="_blank" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about fade-in" id="about">
+    <div class="section-label">001 · Who I Am</div>
+    <div class="about-grid">
+      <div>
+        <h2 class="about-heading">Design that<br><em>moves people</em><br>forward.</h2>
+      </div>
+      <div>
+        <p class="about-text">I'm a UI/UX Designer who blends sharp visual instincts with a deep understanding of how people think. I don't just make things look good — I make them feel right.</p>
+        <p class="about-text">From AI-powered interfaces to refined web experiences, I work at the intersection of aesthetics and function — where every pixel has a purpose.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Ideas shipped</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">01</div>
+            <div class="stat-label">Designer you need</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills fade-in" id="skills">
+    <div class="section-label" style="justify-content:center;">002 · Capabilities</div>
+    <h2 class="skills-heading">What I bring<br><em style="font-style:italic;color:rgba(255,255,255,0.4)">to the table.</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">✦</div>
+        <div class="skill-name">UI/UX Design</div>
+        <div class="skill-desc">Figma, wireframing, prototyping, design systems, component libraries, and pixel-perfect handoff.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⬡</div>
+        <div class="skill-name">AI Interface Design</div>
+        <div class="skill-desc">Designing for LLM-powered products — chat UIs, AI dashboards, and intelligent onboarding flows.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">◈</div>
+        <div class="skill-name">Web Development</div>
+        <div class="skill-desc">HTML, CSS, JavaScript — translating designs into production-grade code with motion and depth.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">◎</div>
+        <div class="skill-name">Motion & Interaction</div>
+        <div class="skill-desc">Canvas animations, micro-interactions, scroll effects, and ambient visual systems.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⬔</div>
+        <div class="skill-name">Prompt Engineering</div>
+        <div class="skill-desc">Crafting AI workflows and user experiences for generative tools, chatbots, and AI-first products.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">❋</div>
+        <div class="skill-name">Brand & Visual Identity</div>
+        <div class="skill-desc">Logo design, typography systems, color theory, and cohesive brand language for digital products.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects fade-in" id="projects">
+    <div class="section-label">003 · Work</div>
+    <h2 class="projects-heading">Selected<br>Projects.</h2>
+    <p class="projects-sub">More coming soon — currently cooking.</p>
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <div class="project-placeholder">Project coming soon</div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="tag">UI/UX</span>
+            <span class="tag">Web Design</span>
+            <span class="tag">Featured</span>
+          </div>
+          <div class="project-name">Your Next Favorite App</div>
+          <div class="project-desc">Details dropping soon. Stay tuned.</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-placeholder">Coming soon</div>
+        <div class="project-info">
+          <div class="project-tags"><span class="tag">AI Product</span></div>
+          <div class="project-name">AI Interface</div>
+          <div class="project-desc">In progress.</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-placeholder">Coming soon</div>
+        <div class="project-info">
+          <div class="project-tags"><span class="tag">Branding</span></div>
+          <div class="project-name">Brand Identity</div>
+          <div class="project-desc">In progress.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact fade-in" id="contact">
+    <canvas class="section-bg"></canvas>
+    <div class="section-label" style="justify-content:center;">004 · Contact</div>
+    <h2 class="contact-heading">
+      Let's make<br>
+      <em>something</em><br>
+      great.
+    </h2>
+    <p class="contact-sub">Have a project in mind? Want to add some finesse to your business? Let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:devangchaure@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        devangchaure@gmail.com
+      </a>
+      <a href="https://github.com/DevanGChaure" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2025 Devang Chaure. All rights reserved.</span>
+    <span class="footer-name">DC</span>
+  </footer>
+
+  <!-- simplex-noise CDN (required by js/background.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
+  <!-- Scripts — background first, then scroll -->
+  <script src="js/background.js"></script>
+  <script src="js/scroll.js"></script>
+</body>
+</html>
