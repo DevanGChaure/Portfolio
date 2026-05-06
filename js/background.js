@@ -49,6 +49,13 @@
   function resize() {
     canvasA.width  = canvasB.width  = window.innerWidth;
     canvasA.height = canvasB.height = window.innerHeight;
+
+    // Resize all section-bg canvases to match their containers
+    document.querySelectorAll('.section-bg').forEach((sectionCanvas) => {
+      const rect = sectionCanvas.getBoundingClientRect();
+      sectionCanvas.width = rect.width;
+      sectionCanvas.height = rect.height;
+    });
   }
 
   // ── CIRCLES ──
@@ -125,9 +132,20 @@
     document.querySelectorAll('.section-bg').forEach((sectionCanvas) => {
       const ctx  = sectionCanvas.getContext('2d');
       const rect = sectionCanvas.getBoundingClientRect();
-      sectionCanvas.width  = rect.width;
-      sectionCanvas.height = rect.height;
+
+      // Only resize if dimensions have changed significantly to avoid unnecessary redraws
+      if (Math.abs(sectionCanvas.width - rect.width) > 1 || Math.abs(sectionCanvas.height - rect.height) > 1) {
+        sectionCanvas.width  = rect.width;
+        sectionCanvas.height = rect.height;
+      }
+
+      // Clear the canvas before drawing
+      ctx.clearRect(0, 0, sectionCanvas.width, sectionCanvas.height);
+
+      // Draw the background slice
       ctx.drawImage(canvasB, 0, rect.top, rect.width, rect.height, 0, 0, rect.width, rect.height);
+
+      // Apply screen overlay
       ctx.globalCompositeOperation = 'screen';
       ctx.fillStyle = SCREEN_OVERLAY;
       ctx.fillRect(0, 0, rect.width, rect.height);
@@ -135,6 +153,22 @@
     });
   }
 
-  window.addEventListener('resize', resize);
+  // Debounce resize events to prevent excessive calls during scroll on mobile
+  let resizeTimeout;
+  function debouncedResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      resize();
+      // Force a redraw after resize
+      copyToSectionCanvases();
+    }, 100);
+  }
+
+  window.addEventListener('resize', debouncedResize);
   window.addEventListener('load', setup);
+
+  // Also listen for orientation change on mobile
+  window.addEventListener('orientationchange', () => {
+    setTimeout(resize, 100);
+  });
 })();

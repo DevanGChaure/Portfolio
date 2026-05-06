@@ -20,14 +20,22 @@
     padding: 100px 16px 60px;
     min-height: 100svh;
     isolation: auto;
+    position: relative;
   }
 
   .hero .section-bg {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100svh;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* Ensure all hero content sits above the background */
+  .hero > *:not(.section-bg) {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-badge {
