@@ -1,13 +1,13 @@
 /* ── HERO SECTION ── */
 .hero {
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 120px 24px 80px;
-  isolation: isolate;
+  isolation: auto;
   position: relative;
 }
 
