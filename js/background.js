@@ -143,7 +143,8 @@
       ctx.clearRect(0, 0, sectionCanvas.width, sectionCanvas.height);
 
       // Draw the background slice
-      ctx.drawImage(canvasB, 0, rect.top, rect.width, rect.height, 0, 0, rect.width, rect.height);
+      const scrollY = window.scrollY || window.pageYOffset;
+      ctx.drawImage(canvasB, 0, rect.top + scrollY, rect.width, rect.height, 0, 0, rect.width, rect.height);
 
       // Apply screen overlay
       ctx.globalCompositeOperation = 'screen';
