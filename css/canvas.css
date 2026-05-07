@@ -5,6 +5,9 @@
   width: 100%; height: 100%;
   z-index: 0;
   pointer-events: none;
+  /* Fix for mobile scrolling issue - ensure canvas covers full viewport */
+  min-height: 100vh;
+  min-height: 100svh; /* Better support for mobile browsers */
 }
 
 /* ── SECTION BLEND CANVAS ── */
