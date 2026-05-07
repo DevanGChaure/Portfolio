@@ -50,6 +50,10 @@
     canvasA.width  = canvasB.width  = window.innerWidth;
     canvasA.height = canvasB.height = window.innerHeight;
 
+      canvasB.style.width  = '100vw';
+      canvasB.style.height = '100vh';
+      canvasB.style.height = '100dvh';
+
     // Resize all section-bg canvases to match their containers
     document.querySelectorAll('.section-bg').forEach((sectionCanvas) => {
       const rect = sectionCanvas.getBoundingClientRect();
@@ -172,4 +176,12 @@
   window.addEventListener('orientationchange', () => {
     setTimeout(resize, 100);
   });
+
+  // Fix for mobile address bar resize
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+    canvasA.width  = canvasB.width  = window.visualViewport.width;
+    canvasA.height = canvasB.height = window.visualViewport.height;
+  });
+}
 })();
