@@ -134,23 +134,27 @@
   // so mix-blend-mode: overlay on sibling text elements works correctly.
   function copyToSectionCanvases() {
     document.querySelectorAll('.section-bg').forEach((sectionCanvas) => {
-      const ctx  = sectionCanvas.getContext('2d');
+      const ctx = sectionCanvas.getContext('2d');
       const rect = sectionCanvas.getBoundingClientRect();
 
-      // Only resize if dimensions have changed significantly to avoid unnecessary redraws
-      if (Math.abs(sectionCanvas.width - rect.width) > 1 || Math.abs(sectionCanvas.height - rect.height) > 1) {
+      if (Math.abs(sectionCanvas.width - rect.width) > 1 || 
+          Math.abs(sectionCanvas.height - rect.height) > 1) {
         sectionCanvas.width  = rect.width;
         sectionCanvas.height = rect.height;
       }
 
-      // Clear the canvas before drawing
       ctx.clearRect(0, 0, sectionCanvas.width, sectionCanvas.height);
 
-      // Draw the background slice
-      const scrollY = window.scrollY || window.pageYOffset;
-      ctx.drawImage(canvasB, 0, rect.top + scrollY, rect.width, rect.height, 0, 0, rect.width, rect.height);
+      // rect.top is viewport-relative, which is exactly what we want
+      // since #bg-canvas is also fixed to the viewport
+      ctx.drawImage(
+        canvasB,
+        0, rect.top,           // source: slice of bg-canvas at viewport position
+        rect.width, rect.height,
+        0, 0,                  // destination: fill section-bg from top-left
+        rect.width, rect.height
+      );
 
-      // Apply screen overlay
       ctx.globalCompositeOperation = 'screen';
       ctx.fillStyle = SCREEN_OVERLAY;
       ctx.fillRect(0, 0, rect.width, rect.height);
