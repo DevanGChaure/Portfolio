@@ -47,17 +47,15 @@
   }
 
   function resize() {
-    canvasA.width  = canvasB.width  = window.innerWidth;
-    canvasA.height = canvasB.height = window.innerHeight;
+    const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+    const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    
+    canvasA.width  = canvasB.width  = vw;
+    canvasA.height = canvasB.height = vh;
 
-      canvasB.style.width  = '100vw';
-      canvasB.style.height = '100vh';
-      canvasB.style.height = '100dvh';
-
-    // Resize all section-bg canvases to match their containers
     document.querySelectorAll('.section-bg').forEach((sectionCanvas) => {
       const rect = sectionCanvas.getBoundingClientRect();
-      sectionCanvas.width = rect.width;
+      sectionCanvas.width  = rect.width;
       sectionCanvas.height = rect.height;
     });
   }
