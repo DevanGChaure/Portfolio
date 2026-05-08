@@ -177,6 +177,24 @@
 
 .project-card.featured .project-placeholder { height: 320px; }
 
+.project-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-card-link:hover {
+  transform: translateY(-4px);
+}
+
 .project-info { padding: 24px; }
 
 .project-tags {
